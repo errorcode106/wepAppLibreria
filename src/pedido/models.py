@@ -9,5 +9,7 @@ class Pedido(models.Model):
     numero_pedido = models.CharField(max_length=8)
     fecha_pedido = models.DateTimeField(default=datetime.now)
     estado = models.CharField(max_length=20)
+    activo = models.BooleanField(default=True)
     libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    
