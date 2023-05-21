@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #app propias
     'libro',
-]
+    'cliente',
+    'pedido',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

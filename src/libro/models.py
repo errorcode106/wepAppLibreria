@@ -7,5 +7,3 @@ class Libro (models.Model):
     autor = models.CharField(max_length=30)
     editorial = models.CharField(max_length=30)
     estado = models.BooleanField(default= True)
-
-    
