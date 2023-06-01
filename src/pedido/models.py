@@ -13,3 +13,8 @@ class Pedido(models.Model):
     libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return F"{self.numero_pedido}, {self.fecha_pedido}, {self.estado}"
+    
+    class Meta:
+        ordering = ["numero_pedido","fecha_pedido","libro"]

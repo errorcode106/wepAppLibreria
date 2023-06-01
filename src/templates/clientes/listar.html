@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% comment %}
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="container">
+  <div class="text-center">
+    <h3 class="title">Lista de Clientes</h3>
+  </div>
+  <table class="table">
+    <thead>
+      <tr class="bg-dark text-white">
+				<th scope="col">NOMBRE</th>
+        <th scope="col">APELLIDO</th>
+        <th scope="col">DNI</th>
+        <th scope="col">MAIL</th>
+        <th scope="col">ESTADO</th>
+        <th scope="col">CAMBIAR ESTADO</th>
+				
+      </tr>
+    </thead>
+    <tbody>
+      
+    {% for cliente in object_list %}
+      <tr>
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.apellido}}</td>
+        <td>{{cliente.dni}}</td>
+        <td>{{cliente.mail}}</td>
+        <td>
+          {% if cliente.activo %}
+          Activo
+          {% else %}
+          Inactivo
+          {% endif %}
+        </td>
+        <td>
+          {% if cliente.activo %}
+          <a class="btn btn-danger btn-sm" href= {% url 'clientes:desactivar_cliente' cliente.pk %}>Desactivar</a>
+          {% else %}
+          <a class="btn btn-success btn-sm" href= {% url 'clientes:activar_cliente' cliente.pk %}>Activar</a>
+          {% endif %}
+        </td>
+        <td>
+          <a class="btn btn-dark btn-sm" href= {% url 'clientes:EditarCliente' cliente.pk %}>Editar</a>
+        </td>
+			</tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class="container text-end">
+  <a class="btn btn-primary" href= {% url 'clientes:CrearCliente' %}>Agregar Cliente</a>
+</div>
+{% endblock contenido %}
+
+{% endcomment %}
+
+
+
+
+{% block contenido %}
+<div class="container">
+  <div class="text-center">
+    <h3 class="title">Lista de Clientes</h3>
+  </div>
+  <table class="table">
+    <thead>
+      <tr class="bg-dark text-white">
+				<th scope="col">NOMBRE</th>
+        <th scope="col">APELLIDO</th>
+        <th scope="col">DNI</th>
+        <th scope="col">MAIL</th>
+        <th scope="col">ESTADO</th>				
+      </tr>
+    </thead>
+    <tbody>     
+    {% for cliente in object_list %}
+      <tr>
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.apellido}}</td>
+        <td>{{cliente.dni}}</td>
+        <td>{{cliente.mail}}</td>
+        <td>
+          {% if cliente.activo %}
+          Activo
+          {% else %}
+          Inactivo
+          {% endif %}
+        </td>
+			</tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock contenido %}

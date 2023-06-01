@@ -57,18 +57,10 @@ ROOT_URLCONF = 'libreria.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.jinja2.Jinja2',
-        'DIRS': ["templates"],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'environment': 'libreria.jinja2.ini_jinja2',
-            'auto_reload': DEBUG,
-            'autoescape': True
-        },
-    },
-    {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR /"templates",
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,6 +72,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'libreria.wsgi.application'
 
@@ -129,8 +122,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-
+#agregar a mano:
+STATIC_URL = 'static/' 
+STATICFILES_DIRS = [    
+    BASE_DIR / 'static',
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

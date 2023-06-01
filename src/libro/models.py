@@ -7,3 +7,9 @@ class Libro (models.Model):
     autor = models.CharField(max_length=30)
     editorial = models.CharField(max_length=30)
     activo = models.BooleanField(default= True)
+
+    def __str__(self):
+        return F"{self.nombre.upper()}, {self.autor.title()}, {self.editorial}"
+    
+    class Meta:
+        ordering = ["nombre","autor","editorial"]
